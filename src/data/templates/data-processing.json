@@ -1,0 +1,44 @@
+{
+  "category": {
+    "id": "data-processing",
+    "name": "Data Processing",
+    "description": "Transform and process data efficiently with automated pipelines",
+    "icon": "🔄"
+  },
+  "templates": [
+    {
+      "id": "csv-data-transformer",
+      "title": "CSV Data Transformer",
+      "description": "Transform, clean, and validate CSV data with automated processing, error handling, and output formatting for various destinations.",
+      "category": "data-processing",
+      "difficulty": "intermediate",
+      "tags": ["csv", "data-transformation", "validation", "etl"],
+      "downloadCount": 1680,
+      "rating": 4.5,
+      "author": "Data Engineer",
+      "createdAt": "2024-01-14",
+      "updatedAt": "2024-01-21",
+      "department": "Data Engineering",
+      "link": "https://n8n.io/workflows/csv-transformer",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "database-synchronization",
+      "title": "Database Synchronization",
+      "description": "Keep multiple databases in sync with real-time data replication, conflict resolution, and automated backup procedures.",
+      "category": "data-processing",
+      "difficulty": "advanced",
+      "tags": ["database", "sync", "replication", "backup"],
+      "downloadCount": 920,
+      "rating": 4.4,
+      "author": "Database Admin",
+      "createdAt": "2024-01-06",
+      "updatedAt": "2024-01-19",
+      "department": "IT Operations",
+      "link": "https://n8n.io/workflows/db-sync",
+      "editorsPick": false,
+      "featured": false
+    }
+  ]
+}

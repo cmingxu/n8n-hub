@@ -1,0 +1,44 @@
+{
+  "category": {
+    "id": "automation",
+    "name": "Automation",
+    "description": "Streamline your workflows with powerful automation templates",
+    "icon": "⚡"
+  },
+  "templates": [
+    {
+      "id": "slack-notification-system",
+      "title": "Slack Notification System",
+      "description": "Automatically send notifications to Slack channels based on various triggers like form submissions, errors, or scheduled events.",
+      "category": "automation",
+      "difficulty": "beginner",
+      "tags": ["slack", "notifications", "webhooks", "alerts"],
+      "downloadCount": 1250,
+      "rating": 4.8,
+      "author": "n8n Team",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-20",
+      "department": "IT Operations",
+      "link": "https://n8n.io/workflows/slack-notifications",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "email-automation-workflow",
+      "title": "Email Automation Workflow",
+      "description": "Create sophisticated email campaigns with personalized content, automated follow-ups, and detailed analytics tracking.",
+      "category": "automation",
+      "difficulty": "intermediate",
+      "tags": ["email", "marketing", "automation", "personalization"],
+      "downloadCount": 890,
+      "rating": 4.6,
+      "author": "Marketing Pro",
+      "createdAt": "2024-01-10",
+      "updatedAt": "2024-01-18",
+      "department": "Marketing",
+      "link": "https://n8n.io/workflows/email-automation",
+      "editorsPick": false,
+      "featured": false
+    }
+  ]
+}

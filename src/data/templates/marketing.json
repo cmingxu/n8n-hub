@@ -1,0 +1,44 @@
+{
+  "category": {
+    "id": "marketing",
+    "name": "Marketing",
+    "description": "Boost your marketing campaigns with automated workflows",
+    "icon": "📈"
+  },
+  "templates": [
+    {
+      "id": "social-media-scheduler",
+      "title": "Social Media Scheduler",
+      "description": "Schedule and publish content across multiple social media platforms with automated posting, hashtag optimization, and engagement tracking.",
+      "category": "marketing",
+      "difficulty": "intermediate",
+      "tags": ["social-media", "scheduling", "content", "automation"],
+      "downloadCount": 2100,
+      "rating": 4.9,
+      "author": "Social Media Expert",
+      "createdAt": "2024-01-12",
+      "updatedAt": "2024-01-22",
+      "department": "Marketing",
+      "link": "https://n8n.io/workflows/social-media-scheduler",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "lead-scoring-automation",
+      "title": "Lead Scoring Automation",
+      "description": "Automatically score and qualify leads based on their behavior, demographics, and engagement patterns to prioritize sales efforts.",
+      "category": "marketing",
+      "difficulty": "advanced",
+      "tags": ["lead-scoring", "crm", "sales", "qualification"],
+      "downloadCount": 750,
+      "rating": 4.7,
+      "author": "Sales Automation",
+      "createdAt": "2024-01-08",
+      "updatedAt": "2024-01-16",
+      "department": "Sales",
+      "link": "https://n8n.io/workflows/lead-scoring",
+      "editorsPick": false,
+      "featured": false
+    }
+  ]
+}
