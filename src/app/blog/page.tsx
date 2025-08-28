@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, User, ArrowRight, Search, Tag } from 'lucide-react';
+import { Calendar, Clock, User, ArrowRight, Search } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 
 // Sample blog posts data

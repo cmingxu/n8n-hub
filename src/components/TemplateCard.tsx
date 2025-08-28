@@ -25,11 +25,11 @@ export function TemplateCard({ template, className, showCategory = false }: Temp
       )}
     >
       {/* Editor's Pick Badge */}
-      {template.isEditorPick && (
+      {template.editorsPick && (
         <div className="absolute top-4 right-4 z-10">
           <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <Star className="w-3 h-3 fill-current" />
-            Editor's Pick
+            Editor&apos;s Pick
           </div>
         </div>
       )}

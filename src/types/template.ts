@@ -5,16 +5,17 @@ export interface N8nTemplate {
   department: string;
   link: string;
   category: string;
-  isEditorPick?: boolean;
+  editorsPick?: boolean;
+  featured?: boolean;
   tags?: string[];
-  difficulty?: 'beginner' | 'intermediate' | 'advanced';
+  difficulty?: string;
   author?: string;
   createdAt?: string;
   updatedAt?: string;
   downloadCount?: number;
   rating?: number;
   thumbnail?: string;
-  workflow: any; // n8n workflow configuration
+  workflow?: unknown; // n8n workflow configuration (optional)
 }
 
 export interface TemplateCategory {

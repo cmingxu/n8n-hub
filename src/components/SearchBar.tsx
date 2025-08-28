@@ -7,13 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
-  placeholder?: string;
   className?: string;
 }
 
 export function SearchBar({ 
   onSearch, 
-  placeholder = "Search templates...", 
   className 
 }: SearchBarProps) {
   const [query, setQuery] = useState('');
@@ -92,7 +90,7 @@ export function SearchBar({
             className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 p-3 z-10"
           >
             <div className="text-sm text-gray-600">
-              Searching for: <span className="font-semibold text-gray-900">"{query}"</span>
+              Searching for: <span className="font-semibold text-gray-900">&quot;{query}&quot;</span>
             </div>
           </motion.div>
         )}

@@ -1,32 +1,48 @@
 import { TemplateData, TemplateCategory, N8nTemplate } from '@/types/template';
-import automationData from '@/data/templates/automation.json';
-import marketingData from '@/data/templates/marketing.json';
-import dataProcessingData from '@/data/templates/data-processing.json';
 
-// Import all template data with proper typing
-const templateFiles = [
-  automationData as { category: any; templates: N8nTemplate[] },
-  marketingData as { category: any; templates: N8nTemplate[] },
-  dataProcessingData as { category: any; templates: N8nTemplate[] },
-];
+interface CategoryData {
+  id: string;
+  name: string;
+  description: string;
+  icon?: string;
+}
 
-// Aggregate all templates and categories
-export function getAllTemplateData(): TemplateData {
+interface TemplateFileData {
+  category: CategoryData;
+  templates: N8nTemplate[];
+}
+
+export async function getTemplateData(): Promise<TemplateData> {
+  const automationData: { default: TemplateFileData } = await import('@/data/templates/automation.json');
+  const marketingData: { default: TemplateFileData } = await import('@/data/templates/marketing.json');
+  const dataProcessingData: { default: TemplateFileData } = await import('@/data/templates/data-processing.json');
+
+  // Import all template data with proper typing
+  const templateFiles = [
+    automationData.default,
+    marketingData.default,
+    dataProcessingData.default,
+  ];
+
+  // Aggregate all templates and categories
   const categories: TemplateCategory[] = [];
   const allTemplates: N8nTemplate[] = [];
   const editorPicks: N8nTemplate[] = [];
 
-  templateFiles.forEach((file) => {
-    const category: TemplateCategory = {
-      ...file.category,
-      templates: file.templates,
+  templateFiles.forEach(file => {
+    const { category, templates } = file;
+    
+    // Create category with templates
+    const categoryWithTemplates: TemplateCategory = {
+      ...category,
+      templates: templates
     };
     
-    categories.push(category);
-    allTemplates.push(...file.templates);
+    categories.push(categoryWithTemplates);
+    allTemplates.push(...templates);
     
-    // Collect editor picks
-    const picks = file.templates.filter((template) => template.isEditorPick);
+    // Filter editor picks
+    const picks = templates.filter(template => template.editorsPick);
     editorPicks.push(...picks);
   });
 
@@ -34,59 +50,22 @@ export function getAllTemplateData(): TemplateData {
     categories,
     editorPicks,
     totalTemplates: allTemplates.length,
-    lastUpdated: new Date().toISOString(),
+    lastUpdated: new Date().toISOString()
   };
 }
 
-// Get templates by category
-export function getTemplatesByCategory(categoryId: string): N8nTemplate[] {
-  const data = getAllTemplateData();
-  const category = data.categories.find(cat => cat.id === categoryId);
-  return category?.templates || [];
-}
-
-// Get single template by ID
-export function getTemplateById(templateId: string): N8nTemplate | null {
-  const data = getAllTemplateData();
-  for (const category of data.categories) {
-    const template = category.templates.find(t => t.id === templateId);
-    if (template) return template;
-  }
-  return null;
-}
-
-// Search templates
-export function searchTemplates(query: string): N8nTemplate[] {
-  const data = getAllTemplateData();
-  const searchTerm = query.toLowerCase();
-  const results: N8nTemplate[] = [];
-
-  data.categories.forEach(category => {
-    category.templates.forEach(template => {
-      const matchesTitle = template.title.toLowerCase().includes(searchTerm);
-      const matchesDescription = template.description.toLowerCase().includes(searchTerm);
-      const matchesTags = template.tags?.some(tag => tag.toLowerCase().includes(searchTerm));
-      const matchesDepartment = template.department.toLowerCase().includes(searchTerm);
-
-      if (matchesTitle || matchesDescription || matchesTags || matchesDepartment) {
-        results.push(template);
-      }
-    });
-  });
-
-  return results;
-}
-
-// Get popular templates (sorted by download count)
-export function getPopularTemplates(limit: number = 6): N8nTemplate[] {
-  const data = getAllTemplateData();
-  const allTemplates: N8nTemplate[] = [];
+export function searchTemplates(templates: N8nTemplate[], query: string): N8nTemplate[] {
+  if (!query.trim()) return templates;
   
-  data.categories.forEach(category => {
-    allTemplates.push(...category.templates);
-  });
+  const searchTerm = query.toLowerCase();
+  return templates.filter(template => 
+    template.title.toLowerCase().includes(searchTerm) ||
+    template.description.toLowerCase().includes(searchTerm) ||
+    template.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) ||
+    template.category.toLowerCase().includes(searchTerm)
+  );
+}
 
-  return allTemplates
-    .sort((a, b) => (b.downloadCount || 0) - (a.downloadCount || 0))
-    .slice(0, limit);
+export function filterTemplatesByCategory(templates: N8nTemplate[], categoryId: string): N8nTemplate[] {
+  return templates.filter(template => template.category === categoryId);
 }

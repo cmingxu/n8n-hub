@@ -1,34 +1,37 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { HeroSection } from '@/components/HeroSection';
 import { SearchBar } from '@/components/SearchBar';
 import { CategoryFilter } from '@/components/CategoryFilter';
 import { TemplateGrid } from '@/components/TemplateGrid';
-import { getAllTemplateData, searchTemplates } from '@/lib/templates';
+import { getTemplateData, searchTemplates } from '@/lib/templates';
+import { TemplateData, TemplateCategory, N8nTemplate } from '@/types/template';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [templateData, setTemplateData] = useState<TemplateData | null>(null);
   
-  const templateData = getAllTemplateData();
+  useEffect(() => {
+    getTemplateData().then(setTemplateData);
+  }, []);
   
-  // Filter resources based on search and category
-  const filteredResources = useMemo(() => {
-    let templates = templateData.categories.flatMap(cat => cat.templates);
-    
-    // Apply search filter
-    if (searchQuery.trim()) {
-      templates = searchTemplates(searchQuery);
-    }
-    
-    // Apply category filter
-    if (selectedCategory) {
-      templates = templates.filter(template => template.category === selectedCategory);
-    }
-    
-    return templates;
-  }, [searchQuery, selectedCategory, templateData]);
+  if (!templateData) {
+    return <div>Loading...</div>;
+  }
+  
+  // Get all templates from all categories
+  const allTemplates = templateData.categories.flatMap((cat: TemplateCategory) => cat.templates);
+  
+  // Filter templates based on search and category
+  let filteredResources = allTemplates;
+  if (searchQuery.trim()) {
+    filteredResources = searchTemplates(filteredResources, searchQuery);
+  }
+  if (selectedCategory) {
+    filteredResources = filteredResources.filter((template: N8nTemplate) => template.category === selectedCategory);
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -66,9 +69,8 @@ export default function Home() {
             {/* Search Bar */}
             <div className="max-w-2xl mx-auto mb-8">
               <SearchBar 
-                onSearch={setSearchQuery}
-                placeholder="Search resources by name, description, or tags..."
-              />
+              onSearch={setSearchQuery}
+            />
             </div>
           </div>
 
@@ -86,9 +88,9 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold text-gray-900">
                 {searchQuery ? (
-                  <>Search Results for "{searchQuery}"</>
+                  <>Search Results for &quot;{searchQuery}&quot;</>
                 ) : selectedCategory ? (
-                  <>Resources in {templateData.categories.find(cat => cat.id === selectedCategory)?.name}</>
+                  <>Resources in {templateData.categories.find((cat: TemplateCategory) => cat.id === selectedCategory)?.name}</>
                 ) : (
                   <>All Resources</>
                 )}

@@ -30,7 +30,7 @@ export function TemplateGrid({
             </svg>
           </div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">No resources found</h3>
-          <p className="text-gray-600">Try adjusting your search or filter criteria to find what you're looking for.</p>
+          <p className="text-gray-600">Try adjusting your search or filter criteria to find what you&apos;re looking for.</p>
         </div>
       </div>
     );
