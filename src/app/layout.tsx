@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import Link from "next/link";
 import { Github, Workflow, BookOpen } from "lucide-react";
@@ -32,11 +34,11 @@ export default function RootLayout({
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900">
-                <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg">
                   <Workflow className="w-6 h-6 text-white" />
                 </div>
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Awesome n8n Templates
+                <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                  Awesome n8n Hub
                 </span>
               </Link>
 
@@ -90,7 +92,7 @@ export default function RootLayout({
               {/* Brand */}
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+                  <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg">
                     <Workflow className="w-6 h-6 text-white" />
                   </div>
                   <span className="font-bold text-xl">n8n Hub</span>

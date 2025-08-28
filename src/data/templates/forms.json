@@ -1,0 +1,61 @@
+{
+  "category": {
+    "id": "forms",
+    "name": "Forms & Surveys",
+    "description": "Interactive form workflows with AI-powered processing and automation",
+    "icon": "📝"
+  },
+  "templates": [
+    {
+      "id": "conversational-interviews-ai",
+      "title": "Conversational Interviews with AI Agents",
+      "description": "Create dynamic, AI-powered conversational interviews using n8n Forms that adapt questions based on responses for better candidate assessment.",
+      "category": "forms",
+      "difficulty": "intermediate",
+      "tags": ["interviews", "ai", "conversational", "forms", "assessment"],
+      "downloadCount": 1345,
+      "rating": 4.6,
+      "author": "HR Innovation",
+      "createdAt": "2024-01-14",
+      "updatedAt": "2024-01-27",
+      "department": "Human Resources",
+      "link": "https://n8n.io/workflows/conversational-interviews",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "email-subscription-ai",
+      "title": "Email Subscription Service with AI",
+      "description": "Intelligent email subscription workflow using n8n Forms, Airtable storage, and AI-powered content personalization for subscriber management.",
+      "category": "forms",
+      "difficulty": "beginner",
+      "tags": ["email", "subscription", "airtable", "ai", "personalization"],
+      "downloadCount": 1876,
+      "rating": 4.7,
+      "author": "Marketing Automation",
+      "createdAt": "2024-01-10",
+      "updatedAt": "2024-01-24",
+      "department": "Marketing",
+      "link": "https://n8n.io/workflows/email-subscription-ai",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "qualifying-appointments-ai",
+      "title": "Qualifying Appointment Requests with AI",
+      "description": "Smart appointment qualification system using AI and n8n Forms to automatically assess and route appointment requests based on predefined criteria.",
+      "category": "forms",
+      "difficulty": "intermediate",
+      "tags": ["appointments", "qualification", "ai", "forms", "routing"],
+      "downloadCount": 987,
+      "rating": 4.4,
+      "author": "Business Automation",
+      "createdAt": "2024-01-18",
+      "updatedAt": "2024-01-30",
+      "department": "Sales",
+      "link": "https://n8n.io/workflows/qualifying-appointments",
+      "editorsPick": false,
+      "featured": false
+    }
+  ]
+}

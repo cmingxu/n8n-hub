@@ -34,7 +34,7 @@ export function CategoryFilter({
           className={cn(
             "px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 flex items-center gap-2",
             selectedCategory === null
-              ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+              ? "bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-lg"
               : "bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900"
           )}
         >
@@ -55,7 +55,7 @@ export function CategoryFilter({
               className={cn(
                 "px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 flex items-center gap-2 relative overflow-hidden",
                 isSelected
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                  ? "bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-lg"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900"
               )}
             >
@@ -79,7 +79,7 @@ export function CategoryFilter({
               {isSelected && (
                 <motion.div
                   layoutId="categoryBackground"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 -z-10"
+                  className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-600 -z-10"
                   initial={false}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
@@ -95,7 +95,7 @@ export function CategoryFilter({
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-100"
+          className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border border-orange-100"
         >
           {(() => {
             const category = categories.find(cat => cat.id === selectedCategory);

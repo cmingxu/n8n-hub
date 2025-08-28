@@ -1,0 +1,61 @@
+{
+  "category": {
+    "id": "discord",
+    "name": "Discord",
+    "description": "Discord bot automation and content sharing workflows for community management",
+    "icon": "💬"
+  },
+  "templates": [
+    {
+      "id": "discord-ai-powered-bot",
+      "title": "Discord AI-Powered Bot",
+      "description": "Intelligent Discord bot with AI capabilities for automated responses, content moderation, and community engagement using advanced language models.",
+      "category": "discord",
+      "difficulty": "intermediate",
+      "tags": ["discord", "bot", "ai", "automation", "community"],
+      "downloadCount": 1876,
+      "rating": 4.7,
+      "author": "Discord Automation",
+      "createdAt": "2024-01-10",
+      "updatedAt": "2024-01-25",
+      "department": "Community Management",
+      "link": "https://n8n.io/workflows/discord-ai-bot",
+      "editorsPick": true,
+      "featured": true
+    },
+    {
+      "id": "calvin-hobbes-discord",
+      "title": "Daily Calvin and Hobbes Comics to Discord",
+      "description": "Automated workflow that fetches, translates, and shares daily Calvin and Hobbes comic strips to Discord channels for community entertainment.",
+      "category": "discord",
+      "difficulty": "beginner",
+      "tags": ["discord", "comics", "daily", "translation", "entertainment"],
+      "downloadCount": 1234,
+      "rating": 4.5,
+      "author": "Comic Enthusiast",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-28",
+      "department": "Entertainment",
+      "link": "https://n8n.io/workflows/calvin-hobbes-discord",
+      "editorsPick": false,
+      "featured": true
+    },
+    {
+      "id": "youtube-ai-summaries-discord",
+      "title": "Share YouTube Videos with AI Summaries on Discord",
+      "description": "Automatically share YouTube videos in Discord channels with AI-generated summaries, making content consumption more efficient for community members.",
+      "category": "discord",
+      "difficulty": "intermediate",
+      "tags": ["discord", "youtube", "ai", "summaries", "content-sharing"],
+      "downloadCount": 1567,
+      "rating": 4.6,
+      "author": "Content Curator",
+      "createdAt": "2024-01-12",
+      "updatedAt": "2024-01-26",
+      "department": "Content Management",
+      "link": "https://n8n.io/workflows/youtube-ai-discord",
+      "editorsPick": false,
+      "featured": false
+    }
+  ]
+}

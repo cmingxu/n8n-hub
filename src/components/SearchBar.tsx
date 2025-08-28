@@ -46,7 +46,7 @@ export function SearchBar({
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <Search className={cn(
             "h-5 w-5 transition-colors duration-200",
-            isFocused ? "text-blue-500" : "text-gray-400"
+            isFocused ? "text-orange-500" : "text-gray-400"
           )} />
         </div>
 
@@ -59,7 +59,7 @@ export function SearchBar({
           onBlur={() => setIsFocused(false)}
           placeholder="Search workflows, templates, and tools by name, description, or tags..."
           className={cn(
-            "w-full pl-12 pr-12 py-4 text-gray-900 placeholder-gray-500 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200",
+            "w-full pl-12 pr-12 py-4 text-gray-900 placeholder-gray-500 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200",
             "text-lg font-medium"
           )}
         />
