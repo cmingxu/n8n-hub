@@ -1,8 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
+const NOMINATIM_BASE_URL = 'https://nominatim.openstreetmap.org';
+
+export async function GET(request: NextRequest, { params }: { params: Promise<{ path: string[] }> }) {
   try {
-    const nominatimUrl = "https://api.sunrisesunset.io/json?lat=36.7201600&lng=-4.4203400"
+    const { searchParams } = new URL(request.url);
+    const queryString = searchParams.toString();
+    
+    // Await the params Promise
+    const resolvedParams = await params;
+    
+    // Build the path from the dynamic segments
+    const nominatimPath = resolvedParams.path ? `/${resolvedParams.path.join('/')}` : '/search';
+    const nominatimUrl = `${NOMINATIM_BASE_URL}${nominatimPath}${queryString ? `?${queryString}` : ''}`;
+    
     console.log('Proxying to:', nominatimUrl);
     const response = await fetch(nominatimUrl, {
       method: 'GET',
@@ -48,14 +59,17 @@ export async function GET() {
   }
 }
 
-export async function POST(request: NextRequest, { params }: { params: { path: string[] } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ path: string[] }> }) {
   try {
     const body = await request.text();
     const { searchParams } = new URL(request.url);
     const queryString = searchParams.toString();
     
+    // Await the params Promise
+    const resolvedParams = await params;
+    
     // Build the path from the dynamic segments
-    const nominatimPath = params.path ? `/${params.path.join('/')}` : '/search';
+    const nominatimPath = resolvedParams.path ? `/${resolvedParams.path.join('/')}` : '/search';
     const nominatimUrl = `${NOMINATIM_BASE_URL}${nominatimPath}${queryString ? `?${queryString}` : ''}`;
     
     console.log('Proxying POST to:', nominatimUrl);
